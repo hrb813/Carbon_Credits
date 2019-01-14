@@ -1,7 +1,7 @@
-Feature: x
+Feature: Validation via JAXRS 
 
 @RunThisTest
-Scenario: xxx
+Scenario: Validating the Name CanRelist and Promotions values
 Given the API URL is "https://api.tmsandbox.co.nz"
     And the path is "/v1/Categories/6327/Details.json"
     When The parameters are "catalogue" and the value is "true"
@@ -15,3 +15,5 @@ Given the API URL is "https://api.tmsandbox.co.nz"
 #  Name = "Carbon credits"
 #  CanRelist = true
 #  The Promotions element with Name = "Gallery" has a Description that contains the text "2x larger image"
+
+# This test can also be data driven by changing this into a Scenario Outline with Examples.
