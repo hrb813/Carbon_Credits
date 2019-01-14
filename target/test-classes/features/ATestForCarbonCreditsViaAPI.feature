@@ -1,5 +1,7 @@
 Feature: x
-  Scenario: xxx
+
+@RunThisTest
+Scenario: xxx
 Given the API URL is "https://api.tmsandbox.co.nz"
     And the path is "/v1/Categories/6327/Details.json"
     When The parameters are "catalogue" and the value is "true"

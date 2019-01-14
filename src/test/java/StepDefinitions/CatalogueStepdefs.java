@@ -6,15 +6,15 @@ import cucumber.api.java.en.When;
 import org.junit.Assert;
 
 import static utility.JAXRS.*;
-import static utility.JAXRS.getJSONObject;
-import static utility.JAXRS.getKeyValues;
-import static utility.JAXRS.getObjectValues;
+
 
 public class CatalogueStepdefs {
 
 
+
     @And("^The \"([^\"]*)\" field should have the value \"([^\"]*)\"$")
     public void theFieldShouldHaveTheValue(String arg0, String arg1) throws Throwable {
+        System.out.println("verifying - " + arg0);
         Assert.assertEquals(arg0 + " field expects the value " +arg1,arg1,getKeyValues(arg0));
     }
 
@@ -42,6 +42,7 @@ public class CatalogueStepdefs {
     @And("^The \"([^\"]*)\" object that has the field key \"([^\"]*)\" with the value \"([^\"]*)\" and the field \"([^\"]*)\" should contain \"([^\"]*)\"$")
     public void theObjectThatHasTheFieldKeyWithTheValueAndTheFieldShouldContain(String arg0, String arg1, String arg2, String arg3, String arg4) throws Throwable {
         try {
+            System.out.println("theObjectThatHasTheFieldKeyWithTheValueAndTheFieldShouldContain");
             Boolean doesContain = Boolean.FALSE;
             if(getObjectValues(arg0,arg1,arg2,arg3).contains(arg4)){
                 doesContain = Boolean.TRUE;

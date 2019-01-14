@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="carbon_credits" default="all">
+  
+  
+  <property file="build.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <property name="jars" value="${idea.home}/lib"/>
+
+    <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.zip"/>
+    <include name="*.egg"/>
+    <include name="*.ane"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.maven:_com.beust:jcommander:1.72.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/beust/jcommander/1.72/jcommander-1.72.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.googlecode.json-simple:json-simple:1.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/googlecode/json-simple/json-simple/1.1/json-simple-1.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_info.cukes:cucumber-core:1.2.5.classpath">
+    <pathelement location="${path.variable.maven_repository}/info/cukes/cucumber-core/1.2.5/cucumber-core-1.2.5.jar"/>
+  </path>
+  
+  <path id="library.maven:_info.cukes:cucumber-html:0.2.3.classpath">
+    <pathelement location="${path.variable.maven_repository}/info/cukes/cucumber-html/0.2.3/cucumber-html-0.2.3.jar"/>
+  </path>
+  
+  <path id="library.maven:_info.cukes:cucumber-java:1.2.5.classpath">
+    <pathelement location="${path.variable.maven_repository}/info/cukes/cucumber-java/1.2.5/cucumber-java-1.2.5.jar"/>
+  </path>
+  
+  <path id="library.maven:_info.cukes:cucumber-junit:1.2.5.classpath">
+    <pathelement location="${path.variable.maven_repository}/info/cukes/cucumber-junit/1.2.5/cucumber-junit-1.2.5.jar"/>
+  </path>
+  
+  <path id="library.maven:_info.cukes:cucumber-jvm-deps:1.0.5.classpath">
+    <pathelement location="${path.variable.maven_repository}/info/cukes/cucumber-jvm-deps/1.0.5/cucumber-jvm-deps-1.0.5.jar"/>
+  </path>
+  
+  <path id="library.maven:_info.cukes:gherkin:2.12.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/info/cukes/gherkin/2.12.2/gherkin-2.12.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.annotation:javax.annotation-api:1.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.inject:javax.inject:1.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/inject/javax.inject/1/javax.inject-1.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.json:javax.json-api:1.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/json/javax.json-api/1.0/javax.json-api-1.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.ws.rs:javax.ws.rs-api:2.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/ws/rs/javax.ws.rs-api/2.1/javax.ws.rs-api-2.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_junit:junit:4.12.classpath">
+    <pathelement location="${path.variable.maven_repository}/junit/junit/4.12/junit-4.12.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.apache-extras.beanshell:bsh:2.0b6.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache-extras/beanshell/bsh/2.0b6/bsh-2.0b6.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.hk2.external:aopalliance-repackaged:2.5.0-b42.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/hk2/external/aopalliance-repackaged/2.5.0-b42/aopalliance-repackaged-2.5.0-b42.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.hk2.external:javax.inject:2.5.0-b42.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/hk2/external/javax.inject/2.5.0-b42/javax.inject-2.5.0-b42.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.hk2:hk2-api:2.5.0-b42.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/hk2/hk2-api/2.5.0-b42/hk2-api-2.5.0-b42.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.hk2:hk2-locator:2.5.0-b42.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/hk2/hk2-locator/2.5.0-b42/hk2-locator-2.5.0-b42.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.hk2:hk2-utils:2.5.0-b42.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/hk2/hk2-utils/2.5.0-b42/hk2-utils-2.5.0-b42.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.hk2:osgi-resource-locator:1.0.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/hk2/osgi-resource-locator/1.0.1/osgi-resource-locator-1.0.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.jersey.core:jersey-client:2.27.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/jersey/core/jersey-client/2.27/jersey-client-2.27.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.jersey.core:jersey-common:2.27.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/jersey/core/jersey-common/2.27/jersey-common-2.27.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.jersey.inject:jersey-hk2:2.27.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/jersey/inject/jersey-hk2/2.27/jersey-hk2-2.27.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.jersey.media:jersey-media-multipart:2.27.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/jersey/media/jersey-media-multipart/2.27/jersey-media-multipart-2.27.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.javassist:javassist:3.22.0-cr2.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/javassist/javassist/3.22.0-CR2/javassist-3.22.0-CR2.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.jvnet.mimepull:mimepull:1.9.6.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/jvnet/mimepull/mimepull/1.9.6/mimepull-1.9.6.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.testng:testng:6.14.3.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/testng/testng/6.14.3/testng-6.14.3.jar"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <fileset dir="${javac2.home}">
+      <include name="javac2.jar"/>
+      <include name="jdom.jar"/>
+      <include name="asm-all*.jar"/>
+      <include name="jgoodies-forms.jar"/>
+    </fileset>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/module_carbon_credits.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.carbon_credits" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.carbon_credits" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+
+  <!--<junit printsummary="yes" failureproperty="junit.failure">-->
+
+    <!--<classpath refid="library.maven:_junit:junit:4.12.classpath"></classpath>-->
+
+    <!--<test name="TestRunner" haltonfailure="no" outfile="result" >-->
+      <!--<formatter type="plain"/>-->
+      <!--<formatter type="xml"/>-->
+    <!--</test>-->
+
+  <!--</junit>-->
+
+
+  <target name="classpath">
+    <path id="classpath">
+      <fileset dir="${path.variable.maven_repository}">
+      <include name="**/*.jar"/>
+      </fileset>
+      <pathelement location="${path.variable.maven_repository}"/>
+    </path>
+    <echo message="compile classpath: ${compile_classpath}"/>
+    <echo message="runtime classpath: ${runtime_classpath}"/>
+    <echo message="test classpath:    ${test_classpath}"/>
+    <echo message="plugin classpath:  ${plugin_classpath}"/>
+  </target>
+
+
+  <!--<target name="classpath">-->
+    <!--<path id="classpath">-->
+      <!--<fileset dir="library.maven">-->
+        <!--<include name="**/*.jar"/>-->
+      <!--</fileset>-->
+      <!--<pathelement location="target/classes"/>-->
+      <!--<pathelement location="target/test-classes"/>-->
+      <!--<pathelement location="src/test/resources"/>-->
+    <!--</path>-->
+  <!--</target>-->
+
+  <!-- the ant job for compiling our code -->
+  <target name="compile" depends="classpath,clean">
+    <mkdir dir="target"/>
+    <mkdir dir="target/classes"/>
+    <javac srcdir="src/main/java" destdir="target/classes" classpathref="classpath" includeantruntime="false"/>
+  </target>
+
+  <!-- the ant job for compiling our test code -->
+  <target name="compile-test" depends="compile">
+    <mkdir dir="target/test-classes"/>
+    <javac srcdir="src/test/java" destdir="target/test-classes" classpathref="classpath" includeantruntime="false"/>
+    <javac srcdir="src/main/java" destdir="target/classes" classpathref="classpath" includeantruntime="false"/>
+  </target>
+
+  <target name="all-junit" depends="compile,compile-test">
+    <junit failureproperty="junit.failure" fork="false" forkmode="once">
+      <classpath refid="classpath"/>
+      <test name="src.test.TestRunner" haltonfailure="no">
+        <formatter type="plain" usefile="false"/>
+      </test>
+    </junit>
+  </target>
+
+  <target name="cucumber" depends="compile,compile-test">
+    <mkdir dir="target/cucumber-junit-report"/>
+    <java classname="cucumber.api.cli.Main" fork="false" failonerror="false">
+      <classpath refid="classpath"/>
+      <arg value="--plugin"/>
+      <arg value="junit:target/cucumber-junit-report.xml"/>
+      <arg value="--plugin"/>
+      <arg value="pretty"/>
+      <!--<arg value="++plugin"/>-->
+      <!--<arg value="html:target/cucumber-html-report"/>-->
+      <arg value="--glue"/>
+      <arg value="com/glue"/>
+      <arg value="src.test.java.StepDefinitions"/>
+    </java>
+
+    <junitreport todir="target/cucumber-junit-report">
+      <fileset dir="target">
+        <include name="cucumber-junit-report.xml"/>
+      </fileset>
+      <report format="frames" todir="target/cucumber-junit-report"/>
+    </junitreport>
+  </target>
+</project>
